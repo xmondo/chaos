@@ -38,19 +38,37 @@ ax.xaxis.set_major_locator(tck.MultipleLocator(base=1.0))
 if __name__ == '__main__':
     try:
         # select function
+        cos_sin_1 = False
+        cos_sin_2 = False
+        cos_1 = False
+        sin_1 = True
+        sin_2 = False
+        sinc = False
 
         # based on product of cosine and sine
-        # chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctionsMultiExponent(q, 3, 5, 1).cos_sin_1()
-        # chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctionsMultiExponent(q, 5, 4, 1).cos_sin_2()
+        if cos_sin_1:
+            chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctionsMultiExponent(q, 3, 5, 1).cos_sin_1()
+            plot_name = 'cos_sin_1.png'
+
+        if cos_sin_2:
+            chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctionsMultiExponent(q, 5, 4, 1).cos_sin_2()
+            plot_name = 'cos_sin_2.p'
 
         # based on cosine
-        # chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctions(q, 3, 1).cos_1()
+        if cos_1:
+            chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctions(q, 3, 1).cos_1()
+            plot_name = 'cos_1.png'
 
         # based on sine
-        # chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctions(q, 15, 1).sin_1()
-        # chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctions(q, 1, 1).sin_2()
-
-        chaos_function, plot_color, label, p1, p2 = cf.SincFunction(q,10, 0.75).sinc()
+        if sin_1:
+            chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctions(q, 15, 1).sin_1()
+            plot_name = 'sin_1.png'
+        if sin_2:
+            chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctions(q, 1, 1).sin_2()
+            plot_name = 'sin_2.png'
+        if sinc:
+            chaos_function, plot_color, label, p1, p2 = cf.SincFunction(q,10, 0.75).sinc()
+            plot_name = 'sinc.png'
 
         # plot
         ax.plot(q, chaos_function, label=label, linewidth=0.95, color=plot_color,linestyle='solid', alpha=0.65)
@@ -62,7 +80,7 @@ if __name__ == '__main__':
         plt.grid(linestyle='--', linewidth=0.65, color='black')
         plt.legend(fontsize=8)
         plt.tight_layout()
-        plt.savefig('/home/xmondo/Desktop/figures/sinc.png')
+        plt.savefig('/home/xmondo/Desktop/figures/%s' % plot_name)
 
     except Exception as err:
         print(err)

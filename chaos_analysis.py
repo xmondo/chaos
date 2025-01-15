@@ -35,15 +35,16 @@ ax.set_xlim(a,b)
 ax.xaxis.set_major_formatter(tck.FormatStrFormatter('%g $\\pi$'))
 ax.xaxis.set_major_locator(tck.MultipleLocator(base=1.0))
 
+# select function
+cos_sin_1 = False
+cos_sin_2 = False
+cos_1 = False
+sin_1 = False
+sin_2 = False
+sinc = True
+
 if __name__ == '__main__':
     try:
-        # select function
-        cos_sin_1 = False
-        cos_sin_2 = True
-        cos_1 = False
-        sin_1 = False
-        sin_2 = False
-        sinc = False
 
         # based on product of cosine and sine
         if cos_sin_1:

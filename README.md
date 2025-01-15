@@ -5,7 +5,7 @@
 
 ## Usage
 
-Adjust all script variables to match your environmnt. 
+Adjust all script variables to match your environment. 
 
 ### Purpose
 

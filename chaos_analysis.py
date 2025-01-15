@@ -39,9 +39,9 @@ if __name__ == '__main__':
     try:
         # select function
         cos_sin_1 = False
-        cos_sin_2 = False
+        cos_sin_2 = True
         cos_1 = False
-        sin_1 = True
+        sin_1 = False
         sin_2 = False
         sinc = False
 
@@ -52,7 +52,7 @@ if __name__ == '__main__':
 
         if cos_sin_2:
             chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctionsMultiExponent(q, 5, 4, 1).cos_sin_2()
-            plot_name = 'cos_sin_2.p'
+            plot_name = 'cos_sin_2.png'
 
         # based on cosine
         if cos_1:

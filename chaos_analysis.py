@@ -35,39 +35,45 @@ ax.set_xlim(a,b)
 ax.xaxis.set_major_formatter(tck.FormatStrFormatter('%g $\\pi$'))
 ax.xaxis.set_major_locator(tck.MultipleLocator(base=1.0))
 
-# select function
-cos_sin_1 = False
-cos_sin_2 = False
-cos_1 = False
-sin_1 = False
-sin_2 = False
-sinc = True
+
+def set_plot():
+    import argparse
+    from sys import exit
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-p", "--plot", type=str, help="cos_sin_2, cos_sin_1, cos_1, sin_1, sin_2, sinc")
+    args = parser.parse_args()
+    if args.plot is None:
+        parser.print_help()
+        exit()
+    else:
+        return args.plot
 
 if __name__ == '__main__':
     try:
-
+        plot = set_plot()
+        print(f'plotting {plot} ...')
         # based on product of cosine and sine
-        if cos_sin_1:
+        if plot == 'cos_sin_1':
             chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctionsMultiExponent(q, 3, 5, 1).cos_sin_1()
             plot_name = 'cos_sin_1.png'
 
-        if cos_sin_2:
+        if plot == 'cos_sin_2':
             chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctionsMultiExponent(q, 5, 4, 1).cos_sin_2()
             plot_name = 'cos_sin_2.png'
 
         # based on cosine
-        if cos_1:
+        if plot == 'cos_1':
             chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctions(q, 3, 1).cos_1()
             plot_name = 'cos_1.png'
 
         # based on sine
-        if sin_1:
+        if plot == 'sin_1':
             chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctions(q, 15, 1).sin_1()
             plot_name = 'sin_1.png'
-        if sin_2:
+        if plot == 'sin_2':
             chaos_function, plot_color, label, p1, p2 = cf.ChaosFunctions(q, 1, 1).sin_2()
             plot_name = 'sin_2.png'
-        if sinc:
+        if plot == 'sinc':
             chaos_function, plot_color, label, p1, p2 = cf.SincFunction(q,10, 0.75).sinc()
             plot_name = 'sinc.png'
 

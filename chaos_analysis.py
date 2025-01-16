@@ -11,12 +11,6 @@ warnings.filterwarnings('ignore')
 # plotting parameters
 plt.rcParams.update({'font.size': 6})
 
-# variables
-amplitude = 1
-a = -np.pi
-b = np.pi
-n = 5000
-h = (b-a)/n
 
 # functions
 def p_title(_p1, _p2):
